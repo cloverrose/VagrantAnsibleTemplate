@@ -1,0 +1,5 @@
+---
+# file: roles/gitsetup/vars/main.yml
+
+git_name: "name"  # [TODO]
+git_email: "email"  # [TODO]

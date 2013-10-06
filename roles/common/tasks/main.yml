@@ -1,0 +1,30 @@
+---
+# file: roles/common/tasks/main.yml
+
+- name: setup python default encoding
+  copy: src=sitecustomize.py dest=/etc/python2.7/sitecustomize.py
+  sudo: yes
+
+- name: setup python ssl.py
+  copy: src=ssl.py dest=/usr/lib/python2.7/ssl.py
+  sudo: yes
+
+- name: install basic packages
+  apt: pkg=$item force=yes update_cache=yes
+  with_items:
+    - curl
+    - emacs
+    - tmux
+    - python-dev
+    - python-pip
+  sudo: yes
+
+- name: install basic python library
+  pip: name=$item
+  with_items:
+    - ipython
+    - ipdb
+    - pytz
+    - beautifulsoup4
+    - requests
+  sudo: yes

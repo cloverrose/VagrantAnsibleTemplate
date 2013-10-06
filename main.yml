@@ -1,0 +1,10 @@
+---
+# file: main.yml
+
+- hosts: myserver
+  user: vagrant
+  gather_facts: no
+
+  roles:
+    - common
+    - gitsetup

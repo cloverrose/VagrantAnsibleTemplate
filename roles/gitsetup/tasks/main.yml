@@ -1,0 +1,26 @@
+---
+# file: roles/gitsetup/tasks/main.yml
+
+- name: install git
+  apt: pkg=$item force=yes update_cache=yes
+  with_items:
+    - git
+  sudo: yes
+
+- name: make ~/.ssh
+  file: path=/home/vagrant/.ssh state=directory
+
+- name: put ~/.ssh/github_id_rsa
+  copy: src=github_id_rsa dest=/home/vagrant/.ssh/github_id_rsa mode=400
+
+- name: put ~/.ssh/bitbucket_id_rsa
+  copy: src=bitbucket_id_rsa dest=/home/vagrant/.ssh/bitbucket_id_rsa mode=400
+
+- name: put ~/.ssh/config
+  copy: src=config dest=/home/vagrant/.ssh/config mode=400
+
+- name: put ~/.gitconfig
+  template: src=dot.gitconfig dest=/home/vagrant/.gitconfig
+
+- name: put ~/.gitignore
+  copy: src=dot.gitignore dest=/home/vagrant/.gitignore

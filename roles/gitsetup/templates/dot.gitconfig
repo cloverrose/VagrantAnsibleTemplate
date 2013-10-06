@@ -1,0 +1,19 @@
+[user]
+  name = {{ git_name }}
+  email = {{ git_email }}
+
+[core]
+  excludesfile = ~/.gitignore
+  editor = emacs
+
+[color]
+  ui = auto
+
+[alias]
+  l = log --all --graph --pretty='format:%C(yellow)%h%C(cyan)%d %Cred%ar %Creset%s'
+
+[merge]
+   ff = false
+
+[pull]
+   rebase = true
