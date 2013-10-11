@@ -13,6 +13,7 @@
   apt: pkg=$item force=yes update_cache=yes
   with_items:
     - curl
+    - unzip
     - emacs
     - tmux
     - python-dev
