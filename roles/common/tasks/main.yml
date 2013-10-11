@@ -14,6 +14,7 @@
   with_items:
     - curl
     - unzip
+    - make
     - emacs
     - tmux
     - python-dev
